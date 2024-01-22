@@ -18,7 +18,7 @@ class LogInActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLogInBinding
     private lateinit var email:EditText
     private lateinit var pass:EditText
-    private lateinit var pgr:ProgressBar
+    private lateinit var pgrb:ProgressBar
     private lateinit var sharedPreferences:SharedPreferences
     private lateinit var mauth:FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +28,7 @@ class LogInActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         email=binding.EmailTV
-        pgr=binding.prgbar
+        pgrb=binding.prgbar
         pass=binding.Password
         mauth=FirebaseAuth.getInstance()
 
@@ -43,7 +43,7 @@ class LogInActivity : AppCompatActivity() {
     }
 
     private fun loginUser() {
-        pgr.visibility= View.VISIBLE
+        pgrb.visibility= View.VISIBLE
 
         var emaill=email.text.toString()
         var pass=pass.text.toString()
@@ -60,14 +60,14 @@ class LogInActivity : AppCompatActivity() {
             .addOnCompleteListener {
                 if (it.isSuccessful){
                     Toast.makeText(this,"Login Successfull..",Toast.LENGTH_SHORT).show()
-                    pgr.visibility=View.GONE
+                    pgrb.visibility=View.GONE
                     val ed=sharedPreferences.edit().putBoolean("login",true)
                     ed.apply()
                     startActivity(Intent(this,MainActivity::class.java))
                 }else{
                     Log.d("Tag","$pass")
                         Toast.makeText(this,"Login Failed..",Toast.LENGTH_SHORT).show()
-                    pgr.visibility=View.GONE
+                    pgrb.visibility=View.GONE
                 }
             }
 
