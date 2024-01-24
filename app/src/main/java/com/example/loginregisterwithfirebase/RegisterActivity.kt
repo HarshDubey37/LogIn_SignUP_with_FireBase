@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth
 class RegisterActivity : AppCompatActivity() {
     private lateinit var emailTextView:EditText
     private lateinit var passwordTextView:EditText
-    private lateinit var  Btn: Button;
+    private lateinit var  Bttn: Button;
     private lateinit var  progressbar: ProgressBar
     private lateinit var mAuth: FirebaseAuth
     private lateinit var binding: ActivityRegisterBinding
@@ -34,11 +34,11 @@ class RegisterActivity : AppCompatActivity() {
                 // initialising all views through id defined above
                 emailTextView = binding.EmailTV;
                 passwordTextView =binding.Password
-                Btn = binding.button
+                Bttn = binding.button
                 progressbar = binding.prgbar
 
                 // Set on Click Listener on Registration button
-                Btn.setOnClickListener {
+                Bttn.setOnClickListener {
                     registerNewUser()
                 }
             }
