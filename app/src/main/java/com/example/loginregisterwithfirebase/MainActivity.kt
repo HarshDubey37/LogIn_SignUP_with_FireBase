@@ -7,14 +7,14 @@ import android.os.Bundle
 import com.example.loginregisterwithfirebase.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding2: ActivityMainBinding
     private lateinit var sharedPreferences:SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        binding2=ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding2.root)
 
-binding.logout.setOnClickListener {
+binding2.logout.setOnClickListener {
     sharedPreferences = getSharedPreferences("login", MODE_PRIVATE)
     sharedPreferences.edit().putBoolean("login", false)
         .apply()

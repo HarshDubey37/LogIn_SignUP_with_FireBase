@@ -22,14 +22,14 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var passwordTextView:EditText
     private lateinit var  button: Button;
     private lateinit var  progressbar: ProgressBar
-    private lateinit var mAuth: FirebaseAuth
+    private lateinit var mAUTH: FirebaseAuth
     private lateinit var binding: ActivityRegisterBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
                 // taking FirebaseAuth instance
-                mAuth = FirebaseAuth.getInstance();
+                mAUTH = FirebaseAuth.getInstance();
 
                 // initialising all views through id defined above
                 emailTextView = binding.EmailTV;
@@ -59,7 +59,7 @@ class RegisterActivity : AppCompatActivity() {
                    return;
                }
                // create new user or register new user
-               mAuth.createUserWithEmailAndPassword(email, password)
+               mAUTH.createUserWithEmailAndPassword(email, password)
                    .addOnCompleteListener {
                        if (it.isSuccessful) {
                            Toast.makeText(applicationContext, "Registration successful!", Toast.LENGTH_LONG).show();
